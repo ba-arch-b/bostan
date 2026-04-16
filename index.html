@@ -1,64 +1,538 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bostan Render Studio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bostan Rendering</title>
+  <meta name="description" content="Professional residential and commercial rendering services across Brisbane and surrounding areas." />
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
+      background: #161616;
+      background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 6px 6px;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(15,15,15,0.95);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #f5a437;
+    }
+
+    .hero {
+      padding: 48px 0 30px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-box {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+    }
+
+    .hero-top {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      padding: 34px 30px 20px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: 50px;
+      line-height: 1.06;
+      letter-spacing: 0.6px;
+    }
+
+    .hero h1 .accent {
+      color: #f5a437;
+    }
+
+    .hero p {
+      margin: 0 0 14px;
+      color: #e8e8e8;
+      font-size: 18px;
+    }
+
+    .hero-sub {
+      max-width: 680px;
+    }
+
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .phone {
+      color: #fff;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #f5a437;
+      color: #1a1a1a;
+    }
+
+    .btn-primary:hover {
+      background: #ffb654;
+    }
+
+    .btn-outline {
+      border: 2px solid #f5a437;
+      color: #f5a437;
+    }
+
+    .btn-outline:hover {
+      background: #f5a437;
+      color: #1a1a1a;
+    }
+
+    .hero-visual {
+      text-align: center;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 18px;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    }
+
+    .logo-strip {
+      padding: 8px 30px 30px;
+      text-align: center;
+    }
+
+    .logo-strip img {
+      width: 220px;
+      max-width: 100%;
+      display: inline-block;
+    }
+
+    .section {
+      padding: 54px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 38px;
+      line-height: 1.1;
+    }
+
+    .section-title h2 .accent {
+      color: #f5a437;
+    }
+
+    .section-title p {
+      margin: 12px auto 0;
+      max-width: 760px;
+      color: #d6d6d6;
+      font-size: 17px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-card .content {
+      padding: 20px;
+    }
+
+    .service-card h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+    }
+
+    .service-card ul {
+      padding-left: 18px;
+      margin: 0;
+      color: #e5e5e5;
+    }
+
+    .service-card li {
+      margin-bottom: 8px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .why-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .why-card .icon {
+      font-size: 40px;
+      margin-bottom: 14px;
+    }
+
+    .why-card h3 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      color: #f5a437;
+    }
+
+    .why-card p {
+      margin: 0;
+      color: #ddd;
+    }
+
+    .cta {
+      padding: 58px 0 70px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(245,164,55,0.15), rgba(255,255,255,0.03));
+      border: 1px solid rgba(245,164,55,0.25);
+      border-radius: 22px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .cta h2 {
+      margin: 0 0 10px;
+      font-size: 42px;
+      line-height: 1.08;
+    }
+
+    .cta p {
+      margin: 0 0 16px;
+      color: #ededed;
+      font-size: 18px;
+    }
+
+    .cta-list {
+      margin-top: 18px;
+    }
+
+    .cta-list p {
+      margin: 6px 0;
+      font-size: 18px;
+    }
+
+    .cta-right {
+      text-align: center;
+    }
+
+    .cta-right img {
+      width: 100%;
+      max-width: 340px;
+      border-radius: 18px;
+      display: inline-block;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 24px 0 40px;
+      text-align: center;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #f5a437;
+    }
+
+    @media (max-width: 900px) {
+      .hero-top,
+      .cta-box,
+      .service-grid,
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 { font-size: 38px; }
+      .section-title h2 { font-size: 32px; }
+      .cta h2 { font-size: 34px; }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .phone {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-top,
+      .logo-strip,
+      .cta-box {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .hero h1 { font-size: 32px; }
+      .section-title h2 { font-size: 28px; }
+      .service-card h3 { font-size: 22px; }
+      .why-card h3 { font-size: 24px; }
+    }
+  </style>
 </head>
+<body>
 
-<body style="margin:0;font-family:Arial;background:#111;color:white;text-align:center;">
+  <div class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <img src="90DDC9C5-9EB3-4823-94D8-BF61E4848AB2.png" alt="Bostan Rendering Logo">
+        <span>BOSTAN RENDERING</span>
+      </div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.instagram.com/bostan.mohammadi" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </div>
 
-<!-- LOGO -->
-<img src="90DDC9C5-9EB3-4823-94D8-BF61E4848AB2.png" style="width:200px;margin-top:40px;">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-box">
+        <div class="hero-top">
+          <div>
+            <h1>PROFESSIONAL <span class="accent">RENDERING</span> SERVICES</h1>
+            <p class="hero-sub">
+              High-quality residential and commercial rendering services across Brisbane and surrounding areas. Built for scale. Trusted for detail.
+            </p>
 
-<h1 style="margin-top:20px;">BOSTAN RENDER STUDIO</h1>
+            <div class="contact-line">
+              <a class="phone" href="tel:+61452289181">+61 452 289 181</a>
+            </div>
 
-<p style="color:#aaa;">ABN: 55 677 026 827</p>
+            <div class="hero-buttons">
+              <a class="btn btn-primary" href="tel:+61452289181">REQUEST A QUOTE</a>
+              <a class="btn btn-outline" href="https://www.instagram.com/bostan.mohammadi" target="_blank">VIEW INSTAGRAM</a>
+            </div>
+          </div>
 
-<p style="margin:20px;">
-We create high-quality, realistic 3D architectural renders that bring your ideas to life.
-</p>
+          <div class="hero-visual">
+            <img src="worker.jpg" alt="Bostan Rendering Worker">
+          </div>
+        </div>
 
-<p style="margin:20px;">
-Whether you are a builder, architect, or developer, we help you present your projects clearly and professionally.
-</p>
+        <div class="logo-strip">
+          <img src="90DDC9C5-9EB3-4823-94D8-BF61E4848AB2.png" alt="Bostan Rendering">
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p style="margin:20px;">
-Our focus is on detail, lighting, and realism to ensure every image looks impressive and ready for presentation or marketing.
-</p>
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>OUR <span class="accent">SERVICES</span></h2>
+        <p>
+          Reliable rendering solutions for residential and commercial projects, from small repairs to larger-scale work.
+        </p>
+      </div>
 
-<p style="margin:20px;">
-From residential homes to commercial buildings, we deliver fast, reliable, and high-standard rendering services across Brisbane.
-</p>
+      <div class="service-grid">
+        <div class="service-card">
+          <img src="poster.jpg" alt="Residential Rendering">
+          <div class="content">
+            <h3>All Types of Rendering</h3>
+            <ul>
+              <li>Residential rendering</li>
+              <li>Commercial rendering</li>
+              <li>Modern exterior finishes</li>
+              <li>High-standard workmanship</li>
+            </ul>
+          </div>
+        </div>
 
-<hr style="margin:30px;border-color:#333;">
+        <div class="service-card">
+          <img src="poster.jpg" alt="Solid Plaster and Render">
+          <div class="content">
+            <h3>Plaster & Solid Render</h3>
+            <ul>
+              <li>Plaster and solid render</li>
+              <li>Texture and finish work</li>
+              <li>Repair and patching</li>
+              <li>Free quotes available</li>
+            </ul>
+          </div>
+        </div>
 
-<h2>🛠 Services</h2>
+        <div class="service-card">
+          <img src="poster.jpg" alt="Small Jobs Welcome">
+          <div class="content">
+            <h3>Small Jobs Welcome</h3>
+            <ul>
+              <li>Small and large jobs</li>
+              <li>Fast response</li>
+              <li>Reliable local service</li>
+              <li>Free quotes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p>• Exterior 3D Rendering</p>
-<p>• Interior 3D Rendering</p>
-<p>• 3D Modelling</p>
-<p>• Floor Plan Rendering</p>
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section-title">
+        <h2>WHY <span class="accent">CHOOSE US?</span></h2>
+      </div>
 
-<hr style="margin:30px;border-color:#333;">
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="icon">🛠</div>
+          <h3>Experienced & Reliable</h3>
+          <p>Years of experience in commercial and residential rendering with a focus on quality and consistency.</p>
+        </div>
 
-<h2>📞 Contact</h2>
+        <div class="why-card">
+          <div class="icon">🏗</div>
+          <h3>Built for Scale</h3>
+          <p>Equipped to handle jobs of all sizes, whether you need a small repair or a larger project completed professionally.</p>
+        </div>
 
-<p style="font-size:20px;">
-<a href="tel:+61452289181" style="color:orange;text-decoration:none;">
-+61 452 289 181
-</a>
-</p>
+        <div class="why-card">
+          <div class="icon">👍</div>
+          <h3>Trusted for Detail</h3>
+          <p>Committed to clean finishes, strong presentation, and workmanship that stands out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p>
-<a href="https://www.instagram.com/bostan.mohammadi" style="color:orange;">
-View Instagram
-</a>
-</p>
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta-box">
+        <div>
+          <h2>GET A FREE QUOTE TODAY</h2>
+          <p>Contact Bostan Rendering for residential and commercial rendering services in Brisbane and surrounding areas.</p>
 
-<p style="color:#777;margin-top:40px;font-size:12px;">
-© Bostan Solid Plaster Rendering Pty Ltd
-</p>
+          <div class="cta-list">
+            <p>📞 <a href="tel:+61452289181" style="color:#f5a437;">+61 452 289 181</a></p>
+            <p>🌐 <a href="http://bostan.com.au" style="color:#f5a437;">bostan.com.au</a></p>
+            <p>📷 <a href="https://www.instagram.com/bostan.mohammadi" target="_blank" style="color:#f5a437;">@bostan.mohammadi</a></p>
+          </div>
+        </div>
+
+        <div class="cta-right">
+          <img src="worker.jpg" alt="Bostan Rendering Character">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="container">
+      <p><strong>BOSTAN RENDERING</strong></p>
+      <p>© 2024 Bostan Rendering. All rights reserved.</p>
+    </div>
+  </div>
 
 </body>
 </html>
