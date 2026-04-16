@@ -3,478 +3,597 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bostan Rendering</title>
-  <meta name="description" content="Professional residential and commercial rendering services across Brisbane and surrounding areas." />
+
+  <title> Bostan Solid Render Plaster | Rendering Services Brisbane</title>
+  <meta name="description" content="Bostan Rendering provides residential and commercial rendering services in Brisbane and surrounding areas. Free quotes, reliable workmanship, and professional finishes." />
+  <meta name="keywords" content="rendering Brisbane, plaster rendering Brisbane, solid plaster Brisbane, commercial rendering Brisbane, residential rendering Brisbane, texture coating Brisbane, wall rendering Brisbane" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Bostan Rendering" />
+  <meta name="theme-color" content="#111111" />
+
+  <meta property="og:title" content="Bostan Rendering | Rendering Services Brisbane" />
+  <meta property="og:description" content="Professional residential and commercial rendering services across Brisbane and surrounding areas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="2A34C48B-227E-4C43-8F51-2375F52DA87C.png" />
+
   <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #fff;
-      background: #161616;
-      background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 6px 6px;
-      line-height: 1.6;
-    }
-    a { text-decoration: none; }
-
-    .container {
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 20px;
+    :root{
+      --bg:#0f0f10;
+      --panel:#171718;
+      --panel2:#1e1f20;
+      --text:#ffffff;
+      --muted:#cfcfcf;
+      --line:rgba(255,255,255,.08);
+      --accent:#f5a437;
+      --accent-dark:#d98a1a;
+      --max:1180px;
+      --radius:18px;
+      --shadow:0 18px 40px rgba(0,0,0,.35);
     }
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(15,15,15,0.95);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(8px);
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(180deg,#111 0%,#0d0d0e 100%);
+      background-size:6px 6px, auto;
+      color:var(--text);
+      line-height:1.6;
     }
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding: 14px 0;
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #fff;
-      font-weight: 700;
-      letter-spacing: 0.4px;
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(10px);
+      background:rgba(10,10,10,.92);
+      border-bottom:1px solid var(--line);
     }
 
-    .brand img {
-      width: 48px;
-      height: 48px;
-      object-fit: cover;
-      border-radius: 8px;
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:14px 0;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
     }
 
-    .nav-links a {
-      color: #ddd;
-      font-size: 14px;
+    .brand img{
+      width:52px;
+      height:52px;
+      object-fit:cover;
+      border-radius:10px;
+      box-shadow:var(--shadow);
     }
 
-    .nav-links a:hover {
-      color: #f5a437;
-    }
-  .hero {
-  padding: 48px 0 30px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  background:
-    linear-gradient(rgba(10,10,10,0.72), rgba(10,10,10,0.88)),
-    url("https://raw.githubusercontent.com/ba-arch-b/bostan/main/2A34C48B-227E-4C43-8F51-2375F52DA87C.png") center/cover no-repeat;
-}
-
-    .hero-box {
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+    .brand-text{
+      min-width:0;
     }
 
-    .hero-top {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 26px;
-      padding: 34px 30px 20px;
-      align-items: center;
+    .brand-title{
+      font-size:18px;
+      font-weight:800;
+      letter-spacing:.5px;
+      white-space:nowrap;
     }
 
-    .hero h1 {
-      margin: 0 0 12px;
-      font-size: 50px;
-      line-height: 1.06;
-      letter-spacing: 0.6px;
+    .brand-sub{
+      font-size:12px;
+      color:#bbb;
     }
 
-    .hero h1 .accent {
-      color: #f5a437;
+    .nav-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
-    .hero p {
-      margin: 0 0 14px;
-      color: #e8e8e8;
-      font-size: 18px;
+    .nav-links a{
+      color:#e8e8e8;
+      font-size:14px;
     }
 
-    .hero-sub {
-      max-width: 680px;
+    .nav-links a:hover{
+      color:var(--accent);
     }
 
-    .contact-line {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      margin-top: 20px;
+    .hero{
+      padding:42px 0 28px;
     }
 
-    .phone {
-      color: #fff;
-      font-size: 30px;
-      font-weight: 700;
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:26px;
+      align-items:stretch;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 15px;
-      transition: 0.2s ease;
+    .hero-left,
+    .hero-right,
+    .card,
+    .poster-block,
+    .gallery-card,
+    .quote-wrap{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
     }
 
-    .btn-primary {
-      background: #f5a437;
-      color: #1a1a1a;
+    .hero-left{
+      padding:34px 28px;
+      background:
+        linear-gradient(rgba(10,10,10,.72), rgba(10,10,10,.82)),
+        url("2A34C48B-227E-4C43-8F51-2375F52DA87C.png") center/cover no-repeat;
     }
 
-    .btn-primary:hover {
-      background: #ffb654;
+    .eyebrow{
+      display:inline-block;
+      color:var(--accent);
+      font-weight:800;
+      letter-spacing:1px;
+      font-size:13px;
+      margin-bottom:12px;
+      text-transform:uppercase;
     }
 
-    .btn-outline {
-      border: 2px solid #f5a437;
-      color: #f5a437;
+    h1{
+      margin:0 0 14px;
+      font-size:52px;
+      line-height:1.02;
+      letter-spacing:.4px;
     }
 
-    .btn-outline:hover {
-      background: #f5a437;
-      color: #1a1a1a;
+    .accent{color:var(--accent)}
+
+    .hero-left p{
+      color:#ececec;
+      font-size:18px;
+      margin:0 0 12px;
+      max-width:760px;
     }
 
-    .hero-visual {
-      text-align: center;
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:10px 18px;
+      margin:22px 0 20px;
     }
 
-    .hero-visual img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 18px;
-      display: block;
-      margin: 0 auto;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    .hero-points div{
+      color:#f3f3f3;
+      font-size:15px;
     }
 
-    .logo-strip {
-      padding: 8px 30px 30px;
-      text-align: center;
+    .hero-cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:16px;
     }
 
-    .logo-strip img {
-      width: 220px;
-      max-width: 100%;
-      display: inline-block;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:15px;
+      transition:.18s ease;
     }
 
-    .section {
-      padding: 54px 0;
+    .btn-primary{
+      background:var(--accent);
+      color:#111;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 28px;
+    .btn-primary:hover{background:#ffb44c}
+
+    .btn-secondary{
+      border:2px solid var(--accent);
+      color:var(--accent);
+      background:transparent;
     }
 
-    .section-title h2 {
-      margin: 0;
-      font-size: 38px;
-      line-height: 1.1;
+    .btn-secondary:hover{
+      background:var(--accent);
+      color:#111;
     }
 
-    .section-title h2 .accent {
-      color: #f5a437;
+    .hero-right{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.04));
     }
 
-    .section-title p {
-      margin: 12px auto 0;
-      max-width: 760px;
-      color: #d6d6d6;
-      font-size: 17px;
+    .hero-right .poster{
+      width:100%;
+      height:100%;
+      object-fit:cover;
     }
 
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+    .section{
+      padding:24px 0 0;
     }
 
-    .service-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      overflow: hidden;
+    .section-head{
+      text-align:center;
+      margin-bottom:18px;
     }
 
-    .service-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
+    .section-head h2{
+      margin:0;
+      font-size:38px;
+      line-height:1.08;
     }
 
-    .service-card .content {
-      padding: 20px;
+    .section-head p{
+      margin:10px auto 0;
+      max-width:850px;
+      color:#d8d8d8;
+      font-size:17px;
     }
 
-    .service-card h3 {
-      margin: 0 0 12px;
-      font-size: 24px;
+    .services{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:20px;
     }
 
-    .service-card ul {
-      padding-left: 18px;
-      margin: 0;
-      color: #e5e5e5;
+    .card-topimg{
+      width:100%;
+      aspect-ratio:16 / 11;
+      object-fit:cover;
+      background:#111;
     }
 
-    .service-card li {
-      margin-bottom: 8px;
+    .card-body{
+      padding:22px;
     }
 
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+    .card h3{
+      margin:0 0 10px;
+      font-size:26px;
     }
 
-    .why-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 24px;
-      text-align: center;
+    .card ul{
+      margin:0;
+      padding-left:20px;
+      color:#ededed;
     }
 
-    .why-card .icon {
-      font-size: 40px;
-      margin-bottom: 14px;
+    .card li{
+      margin:8px 0;
     }
 
-    .why-card h3 {
-      margin: 0 0 12px;
-      font-size: 28px;
-      color: #f5a437;
+    .why{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:20px;
     }
 
-    .why-card p {
-      margin: 0;
-      color: #ddd;
+    .why .card-body{
+      text-align:center;
     }
 
-    .cta {
-      padding: 58px 0 70px;
+    .icon{
+      font-size:38px;
+      margin-bottom:10px;
     }
 
-    .cta-box {
-      background: linear-gradient(135deg, rgba(245,164,55,0.15), rgba(255,255,255,0.03));
-      border: 1px solid rgba(245,164,55,0.25);
-      border-radius: 22px;
-      padding: 30px;
-      display: grid;
-      grid-template-columns: 1fr 0.8fr;
-      gap: 24px;
-      align-items: center;
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:20px;
     }
 
-    .cta h2 {
-      margin: 0 0 10px;
-      font-size: 42px;
-      line-height: 1.08;
+    .gallery-card img{
+      width:100%;
+      aspect-ratio:4 / 3;
+      object-fit:cover;
+      background:#111;
     }
 
-    .cta p {
-      margin: 0 0 16px;
-      color: #ededed;
-      font-size: 18px;
+    .gallery-card .caption{
+      padding:14px 16px 18px;
+      color:#e5e5e5;
+      font-size:14px;
     }
 
-    .cta-list {
-      margin-top: 18px;
+    .poster-block{
+      padding:22px;
     }
 
-    .cta-list p {
-      margin: 6px 0;
-      font-size: 18px;
+    .poster-block img{
+      width:100%;
+      border-radius:14px;
+      border:1px solid var(--line);
     }
 
-    .cta-right {
-      text-align: center;
+    .contact-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:20px;
+      margin-bottom:30px;
     }
 
-    .cta-right img {
-      width: 100%;
-      max-width: 340px;
-      border-radius: 18px;
-      display: inline-block;
+    .quote-wrap{
+      padding:24px;
     }
 
-    .footer {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 24px 0 40px;
-      text-align: center;
-      color: #aaa;
-      font-size: 14px;
+    .contact-lines p{
+      margin:10px 0;
+      font-size:18px;
+      color:#f0f0f0;
+      word-break:break-word;
     }
 
-    .footer a {
-      color: #f5a437;
+    form{
+      display:grid;
+      gap:12px;
     }
 
-    @media (max-width: 900px) {
-      .hero-top,
-      .cta-box,
-      .service-grid,
-      .why-grid {
-        grid-template-columns: 1fr;
+    input, textarea, select{
+      width:100%;
+      padding:14px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:#111;
+      color:#fff;
+      font-size:15px;
+      outline:none;
+    }
+
+    textarea{min-height:130px;resize:vertical}
+
+    .small{
+      color:#bdbdbd;
+      font-size:13px;
+      margin-top:8px;
+    }
+
+    footer{
+      padding:30px 0 50px;
+      text-align:center;
+      color:#a8a8a8;
+      font-size:14px;
+    }
+
+    .floating{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      z-index:1001;
+    }
+
+    .fab{
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--accent);
+      color:#111;
+      font-size:24px;
+      box-shadow:var(--shadow);
+      font-weight:800;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,
+      .contact-grid,
+      .services,
+      .why,
+      .gallery{
+        grid-template-columns:1fr;
       }
 
-      .hero h1 { font-size: 38px; }
-      .section-title h2 { font-size: 32px; }
-      .cta h2 { font-size: 34px; }
-
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        gap: 12px;
-      }
-
-      .phone {
-        font-size: 24px;
-      }
+      h1{font-size:40px}
+      .section-head h2{font-size:32px}
     }
 
-    @media (max-width: 520px) {
-      .hero-top,
-      .logo-strip,
-      .cta-box {
-        padding-left: 18px;
-        padding-right: 18px;
+    @media (max-width: 680px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
       }
 
-      .hero h1 { font-size: 32px; }
-      .section-title h2 { font-size: 28px; }
-      .service-card h3 { font-size: 22px; }
-      .why-card h3 { font-size: 24px; }
+      .nav-links{
+        justify-content:flex-start;
+      }
+
+      .hero-left{
+        padding:26px 18px;
+      }
+
+      .hero-points{
+        grid-template-columns:1fr;
+      }
+
+      h1{font-size:34px}
+      .brand-title{font-size:16px}
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Bostan Rendering",
+    "image":"90DDC9C5-9EB3-4823-94D8-BF61E4848AB2.png",
+    "telephone":"+61 452 289 181",
+    "email":"bostanrender@gmail.com",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Brisbane",
+      "addressRegion":"QLD",
+      "addressCountry":"AU"
+    },
+    "areaServed":"Brisbane",
+    "url":"https://bostan.com.au",
+    "description":"Residential and commercial rendering services in Brisbane and surrounding areas."
+  }
+  </script>
 </head>
 <body>
 
   <div class="topbar">
     <div class="container nav">
       <div class="brand">
-        <img src="90DDC9C5-9EB3-4823-94D8-BF61E4848AB2.png" alt="Bostan Rendering Logo">
-        <span>BOSTAN RENDERING</span>
+        <img src="90DDC9C5-9EB3-4823-94D8-BF61E4848AB2.png" alt="Bostan Rendering logo">
+        <div class="brand-text">
+          <div class="brand-title">BOSTAN RENDERING</div>
+          <div class="brand-sub">Residential & Commercial Rendering | Brisbane</div>
+        </div>
       </div>
+
       <div class="nav-links">
         <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
         <a href="#why">Why Us</a>
+        <a href="#poster">Poster</a>
+        <a href="#quote">Quote</a>
         <a href="#contact">Contact</a>
-        <a href="https://www.instagram.com/bostan.mohammadi" target="_blank">Instagram</a>
       </div>
     </div>
   </div>
 
   <section class="hero">
-    <div class="container">
-      <div class="hero-box">
-        <div class="hero-top">
-          <div>
-            <h1>PROFESSIONAL <span class="accent">RENDERING</span> SERVICES</h1>
-            <p class="hero-sub">
-              High-quality residential and commercial rendering services across Brisbane and surrounding areas. Built for scale. Trusted for detail.
-            </p>
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <div class="eyebrow">Brisbane Rendering Specialists</div>
+        <h1>PROFESSIONAL <span class="accent">RENDERING</span> SERVICES</h1>
+        <p>
+          Bostan Rendering delivers residential and commercial rendering services across Brisbane and surrounding areas, with a strong focus on quality finish, reliability, and presentation.
+        </p>
+        <p>
+          We handle everything from solid plaster and texture finishes to repairs, patching, and small jobs. Built for scale. Trusted for detail.
+        </p>
 
-            <div class="contact-line">
-              <a class="phone" href="tel:+61452289181">+61 452 289 181</a>
-            </div>
-
-            <div class="hero-buttons">
-              <a class="btn btn-primary" href="tel:+61452289181">REQUEST A QUOTE</a>
-              <a class="btn btn-outline" href="https://www.instagram.com/bostan.mohammadi" target="_blank">VIEW INSTAGRAM</a>
-            </div>
-          </div>
-
-          <div class="hero-visual">
-            <img src="worker.jpg" alt="Bostan Rendering Worker">
-          </div>
+        <div class="hero-points">
+          <div>✔ Residential Rendering</div>
+          <div>✔ Commercial Rendering</div>
+          <div>✔ Solid Plaster & Finishes</div>
+          <div>✔ Repairs & Patching</div>
+          <div>✔ Small Jobs Welcome</div>
+          <div>✔ Free Quotes</div>
         </div>
 
-        <div class="logo-strip">
-          <img src="90DDC9C5-9EB3-4823-94D8-BF61E4848AB2.png" alt="Bostan Rendering">
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="tel:+61452289181">Call +61 452 289 181</a>
+          <a class="btn btn-secondary" href="#quote">Request a Quote</a>
+          <a class="btn btn-secondary" href="https://www.instagram.com/bostan.mohammadi" target="_blank">Instagram</a>
         </div>
+      </div>
+
+      <div class="hero-right">
+        <img class="poster" src="2A34C48B-227E-4C43-8F51-2375F52DA87C.png" alt="Bostan Rendering poster">
       </div>
     </div>
   </section>
 
   <section class="section" id="services">
     <div class="container">
-      <div class="section-title">
+      <div class="section-head">
         <h2>OUR <span class="accent">SERVICES</span></h2>
         <p>
-          Reliable rendering solutions for residential and commercial projects, from small repairs to larger-scale work.
+          Reliable rendering solutions for builders, developers, and homeowners across Brisbane. Professional workmanship for both modern homes and commercial projects.
         </p>
       </div>
 
-      <div class="service-grid">
-        <div class="service-card">
-          <img src="poster.jpg" alt="Residential Rendering">
-          <div class="content">
-            <h3>All Types of Rendering</h3>
+      <div class="services">
+        <div class="card">
+          <img class="card-topimg" src="work1.jpg" alt="Residential rendering work">
+          <div class="card-body">
+            <h3>Residential Rendering</h3>
             <ul>
-              <li>Residential rendering</li>
-              <li>Commercial rendering</li>
-              <li>Modern exterior finishes</li>
-              <li>High-standard workmanship</li>
+              <li>Exterior house rendering</li>
+              <li>Modern facade finishes</li>
+              <li>Solid plaster work</li>
+              <li>Texture and detail finish</li>
             </ul>
           </div>
         </div>
 
-        <div class="service-card">
-          <img src="poster.jpg" alt="Solid Plaster and Render">
-          <div class="content">
+        <div class="card">
+          <img class="card-topimg" src="work2.jpg" alt="Plaster and solid render">
+          <div class="card-body">
             <h3>Plaster & Solid Render</h3>
             <ul>
               <li>Plaster and solid render</li>
-              <li>Texture and finish work</li>
-              <li>Repair and patching</li>
-              <li>Free quotes available</li>
+              <li>Wall repair and patching</li>
+              <li>Surface preparation</li>
+              <li>Free quote available</li>
             </ul>
           </div>
         </div>
 
-        <div class="service-card">
-          <img src="poster.jpg" alt="Small Jobs Welcome">
-          <div class="content">
-            <h3>Small Jobs Welcome</h3>
+        <div class="card">
+          <img class="card-topimg" src="work3.jpg" alt="Commercial rendering projects">
+          <div class="card-body">
+            <h3>Commercial Projects</h3>
             <ul>
+              <li>Commercial rendering</li>
               <li>Small and large jobs</li>
               <li>Fast response</li>
               <li>Reliable local service</li>
-              <li>Free quotes</li>
             </ul>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-head">
+        <h2>OUR <span class="accent">WORK</span></h2>
+        <p>
+          Replace these three images later on your computer with your real project photos. This section is what builds trust fastest.
+        </p>
+      </div>
+
+      <div class="gallery">
+        <div class="gallery-card">
+          <img src="work1.jpg" alt="Rendering project one">
+          <div class="caption">Residential exterior rendering with a clean modern finish.</div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="work2.jpg" alt="Rendering project two">
+          <div class="caption">Solid plaster and detail finish work with professional surface preparation.</div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="work3.jpg" alt="Rendering project three">
+          <div class="caption">Commercial and large-scale rendering solutions delivered with reliable workmanship.</div>
         </div>
       </div>
     </div>
@@ -482,58 +601,122 @@
 
   <section class="section" id="why">
     <div class="container">
-      <div class="section-title">
-        <h2>WHY <span class="accent">CHOOSE US?</span></h2>
+      <div class="section-head">
+        <h2>WHY <span class="accent">CHOOSE US</span></h2>
+        <p>
+          This section is written to build confidence, not just describe services.
+        </p>
       </div>
 
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="icon">🛠</div>
-          <h3>Experienced & Reliable</h3>
-          <p>Years of experience in commercial and residential rendering with a focus on quality and consistency.</p>
-        </div>
-
-        <div class="why-card">
-          <div class="icon">🏗</div>
-          <h3>Built for Scale</h3>
-          <p>Equipped to handle jobs of all sizes, whether you need a small repair or a larger project completed professionally.</p>
-        </div>
-
-        <div class="why-card">
-          <div class="icon">👍</div>
-          <h3>Trusted for Detail</h3>
-          <p>Committed to clean finishes, strong presentation, and workmanship that stands out.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta" id="contact">
-    <div class="container">
-      <div class="cta-box">
-        <div>
-          <h2>GET A FREE QUOTE TODAY</h2>
-          <p>Contact Bostan Rendering for residential and commercial rendering services in Brisbane and surrounding areas.</p>
-
-          <div class="cta-list">
-            <p>📞 <a href="tel:+61452289181" style="color:#f5a437;">+61 452 289 181</a></p>
-            <p>🌐 <a href="http://bostan.com.au" style="color:#f5a437;">bostan.com.au</a></p>
-            <p>📷 <a href="https://www.instagram.com/bostan.mohammadi" target="_blank" style="color:#f5a437;">@bostan.mohammadi</a></p>
+      <div class="why">
+        <div class="card">
+          <div class="card-body">
+            <div class="icon">🛠</div>
+            <h3>Experienced & Reliable</h3>
+            <p>
+              We focus on consistent workmanship, clean finishes, and dependable service for both residential and commercial jobs.
+            </p>
           </div>
         </div>
 
-        <div class="cta-right">
-          <img src="worker.jpg" alt="Bostan Rendering Character">
+        <div class="card">
+          <div class="card-body">
+            <div class="icon">🏗</div>
+            <h3>Built for Scale</h3>
+            <p>
+              From small repairs to larger rendering projects, we can handle work of different sizes with the same professional standard.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="icon">👍</div>
+            <h3>Trusted for Detail</h3>
+            <p>
+              We know presentation matters. We aim for strong visual results that look clean, sharp, and ready to impress.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="footer">
+  <section class="section" id="poster">
     <div class="container">
-      <p><strong>BOSTAN RENDERING</strong></p>
-      <p>© 2024 Bostan Rendering. All rights reserved.</p>
+      <div class="section-head">
+        <h2>FEATURED <span class="accent">POSTER</span></h2>
+        <p>
+          Your branded marketing artwork is included here as a dedicated section.
+        </p>
+      </div>
+
+      <div class="poster-block">
+        <img src="2A34C48B-227E-4C43-8F51-2375F52DA87C.png" alt="Bostan Rendering marketing poster">
+      </div>
     </div>
+  </section>
+
+  <section class="section" id="quote">
+    <div class="container contact-grid">
+      <div class="quote-wrap" id="contact">
+        <div class="section-head" style="text-align:left; margin-bottom:12px;">
+          <h2>GET A FREE <span class="accent">QUOTE</span></h2>
+          <p style="margin-left:0;">
+            Send an enquiry and get contacted back. Replace the email below with your real business email.
+          </p>
+        </div>
+
+        <div class="contact-lines">
+          <p>📞 <a href="tel:+61452289181">+61 452 289 181</a></p>
+          <p>📧 <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a></p>
+          <p>📍 Brisbane, QLD</p>
+          <p>📸 <a href="https://www.instagram.com/bostan.mohammadi" target="_blank">@bostan.mohammadi</a></p>
+          <p>🌐 <a href="https://bostan.com.au" target="_blank">bostan.com.au</a></p>
+        </div>
+
+        <div class="hero-cta" style="margin-top:18px;">
+          <a class="btn btn-primary" href="https://wa.me/61452289181" target="_blank">WhatsApp</a>
+          <a class="btn btn-secondary" href="tel:+61452289181">Call Now</a>
+        </div>
+      </div>
+
+      <div class="quote-wrap">
+        <form action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+          <input type="email" name="email" placeholder="Email Address">
+          <select name="service">
+            <option value="">Select Service</option>
+            <option>Residential Rendering</option>
+            <option>Commercial Rendering</option>
+            <option>Solid Plaster</option>
+            <option>Repair & Patching</option>
+            <option>Other</option>
+          </select>
+          <textarea name="message" placeholder="Tell us about your job"></textarea>
+
+          <input type="hidden" name="_subject" value="New Quote Request - Bostan Rendering">
+          <input type="hidden" name="_captcha" value="false">
+
+          <button class="btn btn-primary" type="submit" style="border:none; cursor:pointer;">Submit Enquiry</button>
+        </form>
+        <div class="small">
+          Replace every <strong>YOUR_EMAIL@example.com</strong> in this code with your real business email.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 Bostan Rendering. Brisbane Rendering Services.
+    </div>
+  </footer>
+
+  <div class="floating">
+    <a class="fab" href="tel:+61452289181" title="Call">📞</a>
+    <a class="fab" href="https://wa.me/61452289181" target="_blank" title="WhatsApp">💬</a>
   </div>
 
 </body>
